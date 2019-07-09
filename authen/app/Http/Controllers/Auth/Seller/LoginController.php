@@ -1,27 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Auth\Seller;
 
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
+
 class LoginController extends Controller
 {
+    //
     use AuthenticatesUsers;
 
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/home';
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware('guest:seller')->except('logout');
@@ -32,7 +22,7 @@ class LoginController extends Controller
     }
 
     /**
-     * Phương thức trả về view để đăng nhập cho admin
+     * Phương thức trả về view để đăng nhập cho seller
      * lấy thông tin form có method là POST
      */
     public function loginSeller(Request $request)
